@@ -1,0 +1,35 @@
+<div class="demoTable">
+    <from class="layui-form">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <input type="text" name="deviceId" id="deviceId" value="" placeholder="请输入设备编号" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="deviceName" id="deviceName" value="" placeholder="请输入设备名称" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="adminName" id="adminName" value="" placeholder="请输入商户姓名"
+                       class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="start_time" class="layui-input" id="start_time" placeholder="请选择开始时间">
+            </div>
+            <div class="layui-inline">
+                至
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="end_time" class="layui-input" id="end_time" placeholder="请选择结束时间">
+            </div>
+        </div>
+    </from>
+    <button class="layui-btn" data-type="reload">查询</button>
+    <button class="layui-btn" id="reset">重置</button>
+    <table id="demo" lay-filter="myfilter_test"></table>
+</div>
+
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="out">导出</button>
+    </div>
+</script>
