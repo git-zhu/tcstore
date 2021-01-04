@@ -1,0 +1,79 @@
+<style>
+    .layui-form-label {
+        width: auto;
+    }
+    .vid-wrap{
+        width:100%;background: #000;
+        position:relative;
+        padding-bottom:56.25%;    /*需要用padding来维持16:9比例,也就是9除以16*/
+        height: 0;
+    }
+    .vid-wrap video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+    <div class="layui-form" id="static_form">
+
+    </div>
+    <div id="text">
+
+    </div>
+
+    <div class="vid-wrap" id="video">
+
+    </div>
+
+<script type="text/html" id="id_video">
+    <video controls="" autoplay="" name="media">
+        <source src="{{ d.selfVideo1 }}" type="video/mp4">
+    </video>
+</script>
+<script type="text/html" id="id_static_form">
+        <table class="layui-table">
+            <colgroup>
+                <col width="150">
+            </colgroup>
+            <thead>
+            <tr>
+                <th>商品名称</th>
+                <th>数量</th>
+                <th>单价(元)</th>
+                <th>金额(元)</th>
+                <th>商品编号</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {{#  layui.each(d, function(index, item){ }}
+            <tr>
+                <td>{{ item.goodsName  }}</td>
+                <td>{{ item.buyCount }}</td>
+                <td>{{ item.salePrice }}</td>
+                <td>{{ item.saleCountPrice }}</td>
+                <td>{{ item.goodsCode }}</td>
+            </tr>
+            {{#  }); }}
+            </tbody>
+        </table>
+
+</script>
+<script>
+    var id = '<?php echo $id; ?>';
+</script>
+<script type="text/html" id="id_text">
+    <div class="layui-inline">
+        <label class="layui-form-label">
+            订单编号:{{ d.orderId }}
+        </label>
+    </div>
+    <div class="layui-inline">
+        <label class="layui-form-label">
+            手机号码:{{ d.phone }}
+        </label>
+    </div>
+</script>

@@ -1,0 +1,80 @@
+
+<div class="demoTable">
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <input type="text" name="deviceId" id="deviceId" value="" placeholder="请输入设备ID" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="nameLike" id="nameLike" value="" placeholder="请输入设备名称" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <select name="isOnline" id="isOnline" lay-filter="search" class="layui-input">
+                    <option value="">请选择设备在线状态</option>
+                    <option value="0">离线</option>
+                    <option value="1">在线</option>
+                </select>
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="addressLike" id="addressLike" value="" placeholder="请输入投放地址"
+                       class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="administratorNameLike" id="administratorNameLike" value=""
+                       placeholder="请输入所属商户" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <select name="deviceType" id="deviceType" lay-filter="search" class="layui-input">
+                    <option value="">请选择设备类型</option>
+                    <option value="1">B型动态</option>
+                    <option value="11">L型动态</option>
+                </select>
+            </div>
+        </div>
+    </form>
+    <button class="layui-btn" data-type="reload">查询</button>
+    <button class="layui-btn" id="reset">重置</button>
+    <table id="demo" lay-filter="myfilter_test"></table>
+    <table id="list" lay-filter="test" style="display: none"></table>
+</div>
+
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm layui-btn-disabled" lay-event="create" disabled="disabled">新添设备</button>
+        <button class="layui-btn layui-btn-sm" lay-event="out">导出</button>
+    </div>
+</script>
+
+<script type="text/html" id ="id_option">
+    <a class="layui-btn layui-btn-xs layui-btn-disabled" lay-event="qrCode" title="二维码">二维码</a>
+    <a class="layui-btn layui-btn-xs layui-btn-disabled" lay-event="" title="重启软件">重启软件</a>
+    <a class="layui-btn layui-btn-xs layui-btn-disabled" lay-event="" title="音量调节">音量调节</a>
+    <a class="layui-btn layui-btn-xs layui-btn-disabled" lay-event="" title="解除冻结">解除冻结</a>
+    <a class="layui-btn layui-btn-xs layui-btn-disabled" lay-event="" title="软件升级">软件升级</a>
+    <a class="layui-btn layui-btn-xs layui-btn-disabled" lay-event="" title="硬件检测">硬件检测</a>
+    <a class="layui-btn layui-btn-xs layui-btn-disabled" lay-event="" title="编辑">编辑</a>
+</script>
+<script type="text/html" id="id_deviceType">
+    {{#  if(d.deviceType ===1){ }}
+    B型动态
+    {{#  } if(d.deviceType ===11){ }}
+    L型动态
+    {{#  } }}
+</script>
+<script type="text/html" id="id_isOnline">
+    {{#  if(d.isOnline ==0){ }}
+    离线
+    {{#  } if(d.isOnline ==1){ }}
+    <p style="color: green">在线</p>
+    {{#  } }}
+</script>
+<script type="text/html" id="id_status">
+    {{#  if(d.status ==0){ }}
+    未知
+    {{#  } if(d.status ==1){ }}
+    正常
+    {{#  } if(d.status ==2){ }}
+    冻结
+    {{#  } }}
+</script>

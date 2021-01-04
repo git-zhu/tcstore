@@ -1,0 +1,38 @@
+<div class="content">
+    <div style="padding: 20px; background-color: #F2F2F2;">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md6">
+                <div class="layui-card">
+                    <div class="layui-card-header">可提现金额{empty name='info.use_amount'}0.00{else/}{$info.use_amount}{/empty}元
+                        <button onClick="get_money('提现')" href="javascript:;" class="layui-btn layui-btn-radius layui-btn-normal" style="float:right">提现</button></div>
+                    <div class="layui-card-body">
+                        <font style="color: #008000">微信金额：{$info.wx}元</font><br>
+                        <font style="color: #1796c9">支付宝金额：{$info.ali} 元</font>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md6">
+                <div class="layui-card">
+                    <div class="layui-card-header">已提现金额{empty name='info.total_amount'}0.00{else/}{$info.total_amount}{/empty}元</div>
+                    <div class="layui-card-body">
+                        <font style="color: #008000">微信金额：{$info.wx_amount}元</font><br>
+                        <font style="color: #1796c9">支付宝金额：{$info.ali_amount}元</font>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function get_money(title) {
+        var index = layer.open({
+            type: 2,
+            title: title,
+            area: ['300px','300px'],
+            content: "{:url('get_withdrawal/get_money')}",
+            end: function () {
+                location.reload();
+            }
+        });
+    }
+</script>

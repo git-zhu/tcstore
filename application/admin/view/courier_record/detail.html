@@ -1,0 +1,21 @@
+<table class="layui-table">
+    <colgroup>
+        <col width="200">
+        <col width="100">
+        <col>
+    </colgroup>
+    <thead>
+    <tr>
+        <th>商品名称</th>
+        <th>数量</th>
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $list as $vo}
+    <tr>
+        <td>{$vo->name}</td>
+        <td>{$vo->count}</td>
+    </tr>
+    {/foreach}
+    </tbody>
+</table>

@@ -1,0 +1,91 @@
+<style>
+    .layui-form-label {
+        width: 120px;
+    }
+</style>
+<div class="layui-container" id="view">
+    <form class="layui-form" action="" style="white-space:nowrap!important;">
+        <div class="layui-form-item">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                <label class="layui-form-label" id="id">
+                </label>
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md6" >
+                <label class="layui-form-label" id="userApplyTime">
+                </label>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                <label class="layui-form-label" id="orderId">
+                </label>
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                <label class="layui-form-label" id="refundRemark">
+                </label>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                <label class="layui-form-label" id="phone">
+                </label>
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                <label class="layui-form-label" id="priceOrder">
+                </label>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                <label class="layui-form-label" id="deviceId">
+                </label>
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                <label class="layui-form-label" id="priceApply">
+                </label>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                <label class="layui-form-label" id="goodsList">
+                </label>
+            </div>
+        </div>
+        <hr>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    审核批注：
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="auditRemarkInput" id="auditRemarkInput" class="layui-input" style="position:absolute;z-index:2;width:80%;" lay-verify="required" value="" onkeyup="search()" autocomplete="off" placeholder="请输入退款原因">
+                    <select type="text" name="auditRemark" id="auditRemark" lay-filter="auditRemark" autocomplete="off" placeholder="请选择退款原因" lay-verify="required" class="layui-select" lay-search>
+                        <option value="">请选择退款原因</option>
+                        <option value="商品不符">商品不符</option>
+                        <option value="商品数量不符">商品数量不符</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    实际退款金额：
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="priceRefund" id="priceRefund" placeholder="请输入实际退款金额"class="layui-input" >
+                </div>
+            </div>
+
+        </div>
+    </form>
+    <button id="tongguo" class="layui-btn layui-btn-normal" >通过</button>
+    <button id="jujue" class="layui-btn layui-btn-danger">拒绝</button>
+</div>
+<script>
+    var id = '<?php echo $id; ?>';
+</script>

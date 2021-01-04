@@ -1,0 +1,209 @@
+<style>
+    .layui-form-label {
+        width: auto;
+    }
+</style>
+<div class="layui-container">
+    <form class="layui-form" action="" style="white-space:nowrap!important;">
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                活动名称
+            </label>
+            <div class="layui-input-inline">
+                <input type="test" name="activityName" lay-verify="required|activityName" autocomplete="off" placeholder="请输入活动名称" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                活动banner
+            </label>
+            <div class="layui-input-inline">
+                <div class="layui-upload" style="width: 325px">
+                    <button type="button" class="layui-btn" id="test1">上传图片</button>
+                    <div class="layui-upload-list">
+                        <img class="layui-upload-img" id="demo1" style="border: none;width: auto;height: auto;max-height: 100%;max-width: 100%;">
+                        <input type="hidden" name="banner" id="banner">
+                        <p id="demoText"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-input-inline">
+                <div class="layui-form-mid layui-word-aux">图片上传格式仅支持jpg,png;尺寸为：750*300px;</div>
+            </div>
+        </div>
+
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                开始时间
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" name="startTime" class="layui-input" id="start_time" placeholder="请选择活动起始时间" lay-verify="required">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                结束时间
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" name="endTime" class="layui-input" id="end_time" placeholder="请选择活动结束时间" lay-verify="required">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                活动类型
+            </label>
+            <div class="layui-input-inline" id="r">
+                <input type="radio" name="activityType" value="1" title="新客立减" checked="" lay-filter="t">
+                <input type="radio" name="activityType" value="4" title="满赠红包" lay-filter="t">
+                <input type="radio" name="activityType" value="2" title="随机立减" lay-filter="t">
+                <input type="radio" name="activityType" value="3" title="商品满减" lay-filter="t">
+            </div>
+        </div>
+
+        <div class="layui-form-item" id="newjian">
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    立减金额
+                </label>
+                <div class="layui-input-inline">
+                    <input type="test" name="newCustCutMoney" lay-verify="" autocomplete="off" placeholder="请输入立减金额" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    立减门槛
+                </label>
+                <div class="layui-input-inline">
+                    <input type="test" name="newCustCutCill" lay-verify="" autocomplete="off" placeholder="请输入立减门槛" class="layui-input" >
+                </div>
+            </div>
+        </div>
+
+        <div id="mansong" style="display: none">
+            <div class="layui-form-item" >
+                <div class="layui-inline">
+                    <label class="layui-form-label">
+                        赠送门槛
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="test" name="redPackSendCill" lay-verify="" autocomplete="off" placeholder="请输入赠送门槛" class="layui-input" >
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">
+                        红包金额
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="test" name="redPackMoney" lay-verify="" autocomplete="off" placeholder="请输入红包金额" class="layui-input" >
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item" >
+                <div class="layui-inline">
+                    <label class="layui-form-label">
+                        使用门槛
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="test" name="redPackUseCill" lay-verify="" autocomplete="off" placeholder="请输入使用门槛" class="layui-input" >
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">
+                        使用期限
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="test" name="redPackTimeLimit" lay-verify="" autocomplete="off" placeholder="请输入使用期限（天）" class="layui-input" >
+                    </div>
+                </div>
+                <br>
+                <div class="layui-form-mid layui-word-aux">&nbsp;&nbsp;&nbsp;红包使用门槛限制为订单优惠后金额</div>
+            </div>
+        </div>
+
+
+        <div class="layui-form-item" id="suiji" style="display: none" >
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    最小金额
+                </label>
+                <div class="layui-input-inline">
+                    <input type="test" name="randomCutMin"  autocomplete="off" placeholder="请输入最小金额" class="layui-input" >
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    最大金额
+                </label>
+                <div class="layui-input-inline">
+                    <input type="test" name="randomCutMax"  autocomplete="off" placeholder="请输入最大金额" class="layui-input" >
+                </div>
+            </div>
+            <br>
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    期望平均值
+                </label>
+                <div class="layui-input-inline">
+                    <input type="test" name="randomCutAverage" autocomplete="off" placeholder="请输入期望值" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item" id ='manjian2' style="display: none">
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    满
+                </label>
+                <div class="layui-input-inline">
+                    <input type="test" name="fullCutCill" id="fullCutCill" autocomplete="off" placeholder="请输入" class="layui-input" >
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    减
+                </label>
+                <div class="layui-input-inline">
+                    <input type="test" name="fullCutMoney" id="fullCutMoney" autocomplete="off" placeholder="请输入" class="layui-input">
+                </div>
+                <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" id="addInput"><i class="layui-icon"></i></button>
+            </div>
+            <div id ="appendInput"></div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">
+                参与设备
+            </label>
+        </div>
+        <div class="layui-inline">
+            <div id="appendDevice">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                备注
+            </label>
+            <div class="layui-input-inline">
+                <input type="test" name="mark" lay-verify="" autocomplete="off" placeholder="请输入备注信息" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-form-mid layui-word-aux">同一时间段有多个活动同时进行时，系统将会自动计算优惠力度最大的活动执行。</div>
+        </div>
+        <button id="btnSub" type="submit" class="layui-btn" lay-submit="" lay-filter="sub">确认</button>
+    </form>
+</div>
+<script id="device_checkbox" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+    {{# if(index%5 ===0){ }}
+    <br>
+    {{# } }}
+    <input type="checkbox" name="deviceId" id="{{ item.id }}" lay-skin="primary" title="{{ item.deviceId }}" value="{{ item.id }}">
+    {{#  }); }}
+    {{#  if(d == null){ }}
+    无数据.
+    {{#  } }}
+</script>

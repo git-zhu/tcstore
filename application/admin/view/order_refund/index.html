@@ -1,0 +1,77 @@
+<div class="demoTable">
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <input type="text" name="id" id="id" value="" placeholder="请输入售后编号" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="deviceId" id="deviceId" value="" placeholder="请输入设备编号" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="orderId" id="orderId" value="" placeholder="请输入订单编号" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="userApplyTimeStart" class="layui-input" id="start_time" placeholder="请选择申退时间">
+            </div>
+            <div class="layui-inline">
+                <select name="dealStatus" id="dealStatus" lay-filter="search" class="layui-input">
+                    <option value="">请选择售后状态</option>
+                    <option value="100">售后中</option>
+                    <option value="110">售后退款中</option>
+                    <option value="120">售后审核不通过</option>
+                    <option value="130">系统退款失败</option>
+                    <option value="140">退款成功(或部分退款)</option>
+                </select>
+            </div>
+        </div>
+    </form>
+    <button type="button" class="layui-btn" data-type="reload">查询</button>
+    <button class="layui-btn" id="reset">重置</button>
+
+
+
+
+    <table id="demo" lay-filter="myfilter_test"></table>
+    <table id="list" lay-filter="test" style="display: none"></table>
+</div>
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="out">导出</button>
+    </div>
+</script>
+
+
+<script type="text/html" id="id_option">
+    {{#  if(d.dealStatus ===100){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="audit" title="审核">审核</a>
+    {{#  }else{ }}
+    已审核
+    {{#  } }}
+</script>
+
+<script type="text/html" id="id_dealStatus">
+    {{#  if(d.dealStatus ===99){ }}
+    无售后记录
+    {{#  } if(d.dealStatus ===100){ }}
+    售后中
+    {{#  } if(d.dealStatus ===110){ }}
+    售后退款中
+    {{#  } if(d.dealStatus ===120){ }}
+    售后审核不通过
+    {{#  } if(d.dealStatus ===130){ }}
+    系统退款失败
+    {{#  } if(d.dealStatus ===140){ }}
+    退款成功(或部分退款)
+    {{#  } }}
+</script>
+<script type="text/html" id="id_goodsList">
+    {{# layui.each(d.goodsList,function(index,item){ }}
+    {{#  if(item!=null&& item.name!=null){  }}
+    {{ item.name}};
+    {{#  }else{ }}
+    --
+    {{#  } }}
+    {{#  }); }}
+</script>
+

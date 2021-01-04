@@ -1,0 +1,30 @@
+<form class="layui-form" style="white-space:nowrap!important;"  method="post" action="">
+    <div class="layui-form-item">
+        <label>可提现金额：{$count|default = "0"} 元</label>
+    </div>
+    <div class="layui-form-item">
+            <label >提现金额：</label>
+                <input type="text" name ="withdrawal_money" lay-verify="required|number" placeholder="请输入提现金额(单位：元)" value="">
+                <input type="hidden" name ="count_money"   value="{$count|default='0'}">
+
+                <input type="hidden" name ="open_id" value="{$open_id|default =''}">
+                <input type="hidden" name ="forbidden" value="{$forbidden}">
+                <input type="hidden" name ="name" value="{$name}">
+                <input type="hidden" name ="phone" value="{$phone}">
+
+
+    </div>
+    <div class="layui-form-item">
+        <label >微信号：{$phone|default ="未查到账户"}</label>
+    </div>
+    <div class="layui-form-item">
+        <label >收款账号名：{$name|default ="不存在用户"}</label>
+    </div>
+    <hr>
+    <p>请注意核对提现信息，发起后不可撤回。<br>如因未及时更改账户造成损失，我司不承担任何责任。<br>提现手续费千分之六将自动扣除。<br>单笔单日限额5000元。</p>
+        <div class="formControls  text-c mt-20">
+<!--            <a onClick="withdrawal()" href="javascript:;" class='btn btn-primary'>确定</a>-->
+            <button id="btn" type="submit" class="layui-btn" lay-submit="" lay-filter="sub">确定</button>
+        </div>
+</form>
+

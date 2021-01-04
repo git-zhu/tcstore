@@ -1,0 +1,112 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Goods_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-goods_id" data-rule="required" data-source="goods/index" class="form-control selectpage" name="row[goods_id]" type="text" value="{$row.goods_id|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Barcode')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-barcode" class="form-control" name="row[barcode]" type="text" value="{$row.barcode|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-name" data-rule="required" class="form-control" name="row[name]" type="text" value="{$row.name|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Pic')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-pic" class="form-control" name="row[pic]" type="text" value="{$row.pic|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Planogram')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-planogram" class="form-control" name="row[planogram]" type="text" value="{$row.planogram|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Code')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-code" class="form-control" name="row[code]" type="text" value="{$row.code|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Sale_price')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-sale_price" class="form-control" step="0.01" name="row[sale_price]" type="number" value="{$row.sale_price|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Cost_price')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-cost_price" class="form-control" step="0.01" name="row[cost_price]" type="number" value="{$row.cost_price|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Suit_type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-suit_type" class="form-control" name="row[suit_type]" type="text" value="{$row.suit_type|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Update_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-update_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[update_time]" type="text" value="{$row.update_time}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Create_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-create_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[create_time]" type="text" value="{$row.create_time}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-type" class="form-control" name="row[type]" type="number" value="{$row.type|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Device_type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-device_type" class="form-control" name="row[device_type]" type="number" value="{$row.device_type|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Dynamic_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-dynamic_status" class="form-control" name="row[dynamic_status]" type="number" value="{$row.dynamic_status|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Static_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-static_status" class="form-control" name="row[static_status]" type="number" value="{$row.static_status|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Price')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-price" class="form-control" step="0.01" name="row[price]" type="number" value="{$row.price|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Coupon')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-coupon" class="form-control" step="0.01" name="row[coupon]" type="number" value="{$row.coupon|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

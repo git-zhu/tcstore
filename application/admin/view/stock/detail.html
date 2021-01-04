@@ -1,0 +1,45 @@
+<form id="form" class="layui-form" method="post" action="do_edit?ids={$ids}">
+
+<button class="layui-btn" type="button" id="save_stock" onclick="save_stock">确认修改</button>
+
+<table class="layui-table">
+    <colgroup>
+        <col width="150">
+        <col width="50">
+        <col width="50">
+        <col width="50">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>商品名称</th>
+        <th>已售数量</th>
+        <th>剩余数量</th>
+        <th>标准库存</th>
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $stock_list as $vo}
+    <tr>
+        {if isset($vo.name)}
+        <td>{$vo.name}</td>
+        {else}
+        <td>未知</td>
+        {/if}
+        <td>{$vo.sell}</td>
+        <td><input type="text" name="count" oninput = "value=value.replace(/[^\d]/g,'')" style="width: 30px;height:20px;" value="{$vo.count}"></td>
+        <td><input type="text" name="baseCount" oninput = "value=value.replace(/[^\d]/g,'')" style="width: 30px;height:20px;" value="{$vo.baseCount}"></td>
+        <input type="hidden" name="goodsId" value="{$vo.goodsId}">
+        {if isset($vo.name)}
+        <input type="hidden" name="name" value="{$vo.name}">
+        {else}
+        <input type="hidden" name="name" value="未知">
+        {/if}
+        <input type="hidden" name="sell" value="{$vo.sell}">
+    </tr>
+    {/foreach}
+    </tbody>
+</table>
+</form>
+<script>
+    var ids = '<?php echo $ids; ?>';
+</script>

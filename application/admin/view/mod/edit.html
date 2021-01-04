@@ -1,0 +1,118 @@
+<style>
+    .layui-form-label {
+        width: auto;
+    }
+    .layui-tab-card > .layui-tab-title .layui-this {
+        background-color: #009688;
+    }
+</style>
+<div class="layui-form" lay-filter="formTest">
+    <button type="submit" class="layui-btn" lay-submit="" lay-filter="save" id="btnSub">保存</button><br>
+    <div class="layui-inline">
+        <label class="layui-form-label">
+            模板名称:
+        </label>
+        <div class="layui-inline">
+            <input type="text" name="nickName" id="nickName" value="" placeholder="请输入模板名称" class="layui-input" lay-verify="required">
+        </div>
+    </div>
+    <div class="layui-inline">
+        <label class="layui-form-label">
+            适用设备:
+        </label>
+        <div class="layui-inline">
+            <select name="suitType" id="suitType" lay-filter="search" class="layui-input" lay-verify="required">
+                <option value="">请选择适用设备</option>
+                <option value="1">B型动态柜</option>
+                <option value="11">L型动态柜</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-inline">
+        <label class="layui-form-label">
+            备注:
+        </label>
+        <div class="layui-inline">
+            <input type="text" name="remark" id="remark" value="" placeholder="请输入备注" class="layui-input">
+        </div>
+    </div><br>
+    <div class="layui-inline">
+        <label class="layui-form-label">
+            设备选择:
+        </label>
+    </div>
+    <div class="layui-inline">
+        <div id="appendDevice"></div>
+    </div>
+</div>
+
+<div class="demoTable" style="padding-top: 1%">
+    <div class="layui-tab layui-tab-card">
+        <ul class="layui-tab-title">
+            <li id="li_mod" style="width:50%" >模板商品</li>
+            <li id="li_goods" style="width:50%" class="layui-this">商品库</li>
+        </ul>
+        <div class="layui-tab-content" style="height: auto;">
+            <div class="layui-tab-item">
+                <div class="layui-inline">
+                    <input type="text" name="goodsName1" id="goodsName1" value="" placeholder="请输入商品名称" class="layui-input">
+                </div>
+                <div class="layui-inline">
+                    <input type="text" name="goodsId1" id="goodsId1" value="" placeholder="请输入条形码" class="layui-input">
+                </div>
+                <button class="layui-btn" data-type="mod_reload" id="mod_search">查询</button>
+
+                <table id="modTable" lay-filter="lf_modTable"></table>
+
+            </div>
+            <div class="layui-tab-item layui-show">
+                <div class="layui-inline">
+                    <input type="text" name="goodsName2" id="goodsName2" value="" placeholder="请输入商品名称" class="layui-input">
+                </div>
+                <div class="layui-inline">
+                    <input type="text" name="goodsId2" id="goodsId2" value="" placeholder="请输入条形码" class="layui-input">
+                </div>
+                <button class="layui-btn" data-type="goods_reload" id="goods_search">查询</button>
+
+
+                <table id="goodsTable" lay-filter="lf_goodsTable"></table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id ="id_option_mod">
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="del" title="移除">移除</a>
+</script>
+<script type="text/html" id="id_img">
+    <img src="{{ d.urlPhoto}}" class="img-sm img-center">
+</script>
+<script type="text/html" id="id_option_goods">
+    {{#  if(d.isBind ===0){ }}
+    <button class="layui-btn layui-btn-xs layui-btn-normal" lay-event="addModGoods" title="添加到模板商品">添加到模板商品</button>
+    {{#  } if(d.isBind ===1){ }}
+    <button class="layui-btn layui-btn-xs layui-btn-normal layui-btn-disabled" disabled="disabled" lay-event="addModGoods" title="已添加">已添加</button>
+    {{#  } }}
+</script>
+<script id="device_checkbox" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+    <input type="checkbox" name="deviceId" id="{{ item.id }}" lay-skin="primary" title="{{ item.deviceId }}" value="{{ item.deviceId }}">
+    {{#  }); }}
+
+    {{#  if(d == null){ }}
+    无数据.
+    {{#  } }}
+</script>
+<script>
+    var modId = '<?php echo $modId;?>';
+</script>
+<script type="text/html" id="id_costPrice">
+    <i class="layui-icon">&#xe642;</i>{{ d.costPrice }}
+</script>
+<script type="text/html" id="id_stockNum">
+    <i class="layui-icon">&#xe642;</i>{{ d.stockNum }}
+</script>
+<script type="text/html" id="id_salePrice">
+    <i class="layui-icon">&#xe642;</i>{{ d.salePrice }}
+</script>

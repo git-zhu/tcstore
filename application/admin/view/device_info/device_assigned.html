@@ -1,0 +1,18 @@
+<form class="layui-form" style="white-space:nowrap!important;" action="{:url('device_info/device_assigned')}" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">商户列表</label>
+        <div class="layui-input-block">
+            <select name="user_id">
+                <option value="">请选择商户</option>
+
+                {volist name="list" id="ca" key="k" }
+                <option value="{$ca.user_id}" >{$ca.user_name}</option>
+                {/volist}
+            </select>
+            <input type="hidden" name="device_id" value="{$device_id}">
+        </div>
+
+    </div>
+    <button class="btn btn-success" type="submit">确认</button>
+</form>
+

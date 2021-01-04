@@ -1,0 +1,52 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('User_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-user_id" data-rule="required" data-source="user/user/index" data-field="nickname" class="form-control selectpage" name="row[user_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Haha_user_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-haha_user_id" data-rule="required" data-source="haha/user/index" class="form-control selectpage" name="row[haha_user_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Open_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-open_id" data-rule="required" data-source="open/index" class="form-control selectpage" name="row[open_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Phone')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" class="form-control" name="row[phone]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Wx_service_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-wx_service_status" class="form-control" name="row[wx_service_status]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Ali_user_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ali_user_id" data-rule="required" data-source="ali/user/index" class="form-control selectpage" name="row[ali_user_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Ali_agreement_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ali_agreement_status" class="form-control" name="row[ali_agreement_status]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

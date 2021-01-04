@@ -1,0 +1,57 @@
+
+<div class="demoTable">
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <input type="text" name="name" id="name" value="" placeholder="请输入商品名称" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="goodsId" id="goodsId" value="" placeholder="请输入商品编号" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <select name="suitType" id="suitType" lay-filter="search" class="layui-input">
+                    <option value="">请选择适用设备类型</option>
+                    <option value="1">B型动态柜</option>
+                    <option value="11">L型动态柜</option>
+                    <option value="1,11">全部</option>
+                </select>
+            </div>
+        </div>
+    </form>
+    <button class="layui-btn" data-type="reload">查询</button>
+    <button class="layui-btn" id="reset">重置</button>
+    <table id="demo" lay-filter="myfilter_test"></table>
+    <table id="list" lay-filter="test" style="display: none"></table>
+</div>
+
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="out">导出</button>
+    </div>
+</script>
+
+<script type="text/html" id ="id_option">
+    <a class="layui-btn layui-btn-xs layui-btn-disabled" lay-event="" title="编辑">编辑</a>
+    <a class="layui-btn layui-btn-xs layui-btn-disabled " lay-event="" title="删除">删除</a>
+</script>
+<script type="text/html" id="id_suitType">
+    {{#  if(d.suitType ==1){ }}
+    B型动态柜
+    {{#  } else if(d.suitType ==11){ }}
+    L型动态柜
+    {{#  } else if(d.suitType =='1,11'){ }}
+    全部
+    {{# } else{ }}
+    --
+    {{#  } }}
+</script>
+<script type="text/html" id="id_img">
+    <img src="{{ d.pic}}" class="img-sm img-center">
+</script>
+<script type="text/html" id="id_salePrice">
+    <i class="layui-icon">&#xe642;</i>{{ d.salePrice }}
+</script>
+<script type="text/html" id="id_costPrice">
+    <i class="layui-icon">&#xe642;</i>{{ d.costPrice }}
+</script>

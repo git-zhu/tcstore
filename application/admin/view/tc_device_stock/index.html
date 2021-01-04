@@ -1,0 +1,40 @@
+
+<div class="demoTable">
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <input type="text" name="deviceId"  value="" id="deviceId" placeholder="请输入设备编号" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="nameLike" id="nameLike" value="" placeholder="请输入设备名称" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="addressLike" id="addressLike" value="" placeholder="请输入设备地址" class="layui-input">
+            </div>
+        </div>
+    </form>
+    <button class="layui-btn" data-type="reload">查询</button>
+    <button class="layui-btn" id="reset">重置</button>
+    <table id="demo" lay-filter="myfilter_test"></table>
+    <table id="list" lay-filter="test" style="display: none"></table>
+</div>
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="out">导出</button>
+    </div>
+</script>
+
+<script type="text/html" id ="id_option">
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="detail" title="查看详情">查看详情</a>
+</script>
+<script type="text/html" id="warningNum">
+    <i class="layui-icon">&#xe642;</i>{{ d.warningNum }}%
+</script>
+<script type="text/html" id="id_stockStatus">
+    {{# if(d.stockStatus == '库存充足'){ }}
+    <p style="color: green">{{ d.stockStatus }}</p>
+    {{# }else{ }}
+    <p style="color: red">{{ d.stockStatus }}</p>
+    {{# } }}
+</script>

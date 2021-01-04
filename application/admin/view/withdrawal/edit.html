@@ -1,0 +1,58 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Wo_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-wo_id" data-rule="required" data-source="wo/index" class="form-control selectpage" name="row[wo_id]" type="text" value="{$row.wo_id|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Administrator_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-administrator_id" data-rule="required" data-source="administrator/index" class="form-control selectpage" name="row[administrator_id]" type="text" value="{$row.administrator_id|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Create_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-create_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[create_time]" type="text" value="{$row.create_time}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Finish_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-finish_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[finish_time]" type="text" value="{$row.finish_time}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-status" class="form-control" name="row[status]" type="number" value="{$row.status|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Total_amount')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-total_amount" class="form-control" name="row[total_amount]" type="text" value="{$row.total_amount|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Wx_amount')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-wx_amount" class="form-control" name="row[wx_amount]" type="text" value="{$row.wx_amount|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Ali_amount')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ali_amount" class="form-control" name="row[ali_amount]" type="text" value="{$row.ali_amount|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

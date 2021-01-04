@@ -1,0 +1,175 @@
+<div class="demoTable">
+    <from class="layui-form">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <div class="layui-inline">
+                    <select name="orderStatus" id="orderStatus" lay-filter="search">
+                        <option value="">请选择订单状态</option>
+                        <option value="0">订单已创建</option>
+                        <option value="10">进行中</option>
+                        <option value="20">识别中</option>
+                        <option value="30">识别异常</option>
+                        <option value="40">支付中</option>
+                        <option value="50">扣款轮询中</option>
+                        <option value="60">支付失败</option>
+                        <option value="70">已支付</option>
+                        <option value="80">已取消</option>
+                        <option value="80">已取消</option>
+                        <option value="90">开门失败，订单取消</option>
+                    </select>
+                </div>
+                <div class="layui-inline">
+                    <select name="refundStatus" id="refundStatus" lay-filter="search">
+                        <option value="">请选择售后状态</option>
+                        <option value="99">无售后记录</option>
+                        <option value="100">售后中</option>
+                        <option value="110">售后退款中</option>
+                        <option value="120">售后审核不通过</option>
+                        <option value="130">系统退款失败</option>
+                        <option value="140">退款成功(或部分退款)</option>
+                    </select>
+                </div>
+                <div class="layui-inline">
+                    <select name="payWay" id="payWay" lay-filter="search">
+                        <option value="">请选择支付状态</option>
+                        <option value="0">微信</option>
+                        <option value="1">支付宝</option>
+                    </select>
+                </div>
+                <div class="layui-inline">
+                    <select name="isDiscount" id="isDiscount" lay-filter="search">
+                        <option value="">请选择优惠状态</option>
+                        <option value="1">有</option>
+                        <option value="0">无</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="orderId" id="orderId" value="" placeholder="请输入订单编号" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="deviceId" id="deviceId" value="" placeholder="请输入设备编号" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="deviceNameLike" id="deviceNameLike" value="" placeholder="请输入设备名称"
+                       class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="phone" id="phone" value="" placeholder="请输入手机号码" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="start_time" class="layui-input" id="start_time" placeholder="请选择订单创建时间始">
+            </div>
+            <div class="layui-inline">
+                至
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="start_time" class="layui-input" id="end_time" placeholder="请选择订单创建时间末">
+            </div>
+        </div>
+    </from>
+    <button class="layui-btn" data-type="reload">查询</button>
+    <button class="layui-btn" id="reset">重置</button>
+    <table id="demo" lay-filter="myfilter_test"></table>
+    <table id="list" lay-filter="test" style="display: none"></table>
+</div>
+
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="out">导出</button>
+    </div>
+</script>
+
+<script type="text/html" id="id_option">
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="detail" title="查看详情">查看详情</a>
+</script>
+<script type="text/html" id="id_deviceList">
+    {{# layui.each(d.deviceList,function(index,item){ }}
+    {{ item.deviceId}}；
+    {{#  }); }}
+    {{# if(d.deviceList.length >2){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="device" title="设备列表">查看</a>
+    {{#  } }}
+</script>
+<script type="text/html" id="id_payWay">
+    {{#  if(d.payWay ===0){ }}
+    <p style="color: green">微信</p>
+    {{#  } if(d.payWay ===1){ }}
+    <p style="color: blue">支付宝</p>
+    {{#  } }}
+</script>
+<script type="text/html" id="id_orderDetailList">
+    {{# layui.each(d.orderDetailList,function(index,item){ }}
+    {{ item.goodsName}} * {{ item.buyCount }};
+    {{#  }); }}
+    {{# if((d.orderDetailList.length ===0)&&(d.orderStatus ===70)){ }}
+    未购买商品
+    {{# }else if((d.orderDetailList.length ===0)&&(d.orderStatus !=70)){ }}
+    --
+    {{#  } }}
+</script>
+<script type="text/html" id="tpl_payTime">
+    {{# if(d.payTime ==null){ }}
+    --
+    {{# }else{ }}
+    {{ d.payTime }}
+    {{#  } }}
+</script>
+<script type="text/html" id="id_orderStatus">
+    {{#  if(d.orderStatus ===0){ }}
+    订单已创建
+    {{#  }else if(d.orderStatus ===10){ }}
+    进行中
+    {{#  }else if(d.orderStatus ===20){ }}
+    识别中
+    {{#  }else if(d.orderStatus ===30){ }}
+    识别异常
+    {{#  }else if(d.orderStatus ===40){ }}
+    支付中
+    {{#  }else if(d.orderStatus ===50){ }}
+    扣款轮询中
+    {{#  }else if(d.orderStatus ===60){ }}
+    支付失败
+    {{#  }else if(d.orderStatus ===70){ }}
+    已支付
+    {{#  }else if(d.orderStatus ===80){ }}
+    已取消
+    {{#  }else if(d.orderStatus ===90){ }}
+    开门失败，订单取消
+    {{#  }else{ }}
+    未知
+    {{#  } }}
+</script>
+
+<script type="text/html" id="id_refundStatus">
+    {{#  if(d.refundStatus ===99){ }}
+    无售后记录
+    {{#  }else if(d.refundStatus ===100){ }}
+    售后中
+    {{#  }else if(d.refundStatus ===110){ }}
+    售后退款中
+    {{#  }else if(d.refundStatus ===120){ }}
+    售后审核不通过
+    {{#  }else if(d.refundStatus ===130){ }}
+    系统退款失败
+    {{#  }else if(d.refundStatus ===140){ }}
+    退款成功(或部分退款)
+    {{# }else{ }}
+    未知
+    {{#  } }}
+</script>
+<script type="text/html" id="id_isDiscount">
+    {{#  if(d.isDiscount ===0){ }}
+    否
+    {{#  } else if(d.isDiscount ===1){ }}
+    是
+    {{#  } }}
+</script>
+<script type="text/html" id="id_phone">
+    {{#  if(d.phone.length==0){ }}
+    --
+    {{#  } else{ }}
+    {{ d.phone }}
+    {{#  } }}
+</script>

@@ -1,0 +1,51 @@
+<form class="layui-form" style="white-space:nowrap!important;" enctype="multipart/form-data"  method="post" action="{:url('Finance/get_money')}">
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-md-2 col-lg-3">提现金额：{$info.order_money}</label>
+
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-md-2 col-lg-3">支付宝收款人姓名：{$admin.ali_account_name}</label>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-md-2 col-lg-3">支付宝收款账号：{$admin.ali_account}</label>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-md-2 col-lg-3">银行卡收款人姓名：{$admin.bank_account}</label>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-md-2 col-lg-3">银行卡开户支行：{$admin.bank_account_type}</label>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-md-2 col-lg-3">银行卡收款账号：{$admin.bank_account_name}</label>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-md-2 col-lg-3">地址：{$admin.address}</label>
+        </div>
+        <div class="row cl">
+            <div class="formControls  text-c mt-20">
+                <a onClick="withdrawal()" href="javascript:;" class='btn btn-primary'>确定</a>
+            </div>
+        </div>
+</form>
+<script type="text/javascript">
+    function withdrawal(id) {
+        var title = '确定提现信息无误并提现？';
+        layer.confirm(title,function(index){
+            $.ajax({
+                url: '{:url("get_withdrawal/do_get_money")}',
+                type: 'post',
+                success: function(data){
+
+
+                    if(data.code==1){
+                        layer.msg('成功发起提现申请!',{icon:1,time:3000});
+                    }else{
+                        layer.msg('提现失败!',{icon:2,time:3000});
+                    }
+                }
+
+            });
+            layer.close();
+        });
+    }
+</script>

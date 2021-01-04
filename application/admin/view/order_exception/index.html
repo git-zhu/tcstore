@@ -1,0 +1,120 @@
+<style >
+    .layui-form-label{
+        width:auto;
+    }
+</style>
+<div class="demoTable">
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <input type="text" name="orderId" id="orderId" value="" placeholder="请输入订单编号" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="deviceId" id="deviceId" value="" placeholder="请输入设备编号" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="deviceNameLike" id="deviceNameLike" value="" placeholder="请输入设备名称" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="phone" id="phone" value="" placeholder="请输入手机号码" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <div class="layui-inline">
+                    <input type="text" name="start_time" class="layui-input" id="start_time" placeholder="请选择创建时间">
+                </div>
+                <div class="layui-inline">至</div>
+                <div class="layui-inline">
+                    <input type="text" name="end_time" class="layui-input" id="end_time" placeholder="请选择创建时间">
+                </div>
+            </div>
+        </div>
+    </form>
+    <button type="button" class="layui-btn" data-type="reload" id="reload">查询</button>
+    <button class="layui-btn" id="reset">重置</button>
+    <div>
+        <fieldset class="layui-elem-field">
+            <legend>规则说明</legend>
+            <div class="layui-field-box">
+                1.为防止货损，系统将商品订单明细中含有“未知”或“违规”的订单判定为异常订单<br>
+                2.异常订单暂未扣费，您可以根据购物视频配置“未知”的价格或“违规”的处罚金额后进行扣款<br>
+                3.超过默认时间仍未配置的，系统将按照默认价格进行扣款。默认时间和默认价格可自由配置，
+                如未进行配置则默认时间按照“72H”, 默认“未知”为3元，默认“违规”为50元。
+            </div>
+        </fieldset>
+    </div>
+    <form class="layui-form" lay-filter="exForm">
+            <div class="layui-form-item">
+                <div class="layui-inline" style="width: 100%">
+                    <label class="layui-form-label">
+                        默认时间：
+                    </label>
+                    <div class="layui-inline">
+                        <input class="layui-input" name="waitDealTime" id="waitDealTime" placeholder="请输入默认时间(单位/小时)" lay-verify="required|number">
+                    </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">
+                        默认"未知"单价：
+                    </label>
+                    <div class="layui-inline">
+                        <input class="layui-input" name="unknowPrice" id="unknowPrice" placeholder="请输入单价(单位/元)" lay-verify="required|number">
+
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">
+                        默认"违规"单价：
+                    </label>
+                    <div class="layui-inline">
+                        <input class="layui-input" name="unlawPrice" id="unlawPrice" placeholder="请输入单价(单位/元)" lay-verify="required|number">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button type="button"  class="layui-btn" id="sub">确认</button>
+                </div>
+            </div>
+            </div>
+    </form>
+
+    <table id="demo" lay-filter="myfilter_test"></table>
+    <table id="list" lay-filter="test" style="display: none"></table>
+</div>
+
+
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button type="button" class="layui-btn layui-btn-sm" lay-event="out">导出</button>
+    </div>
+</script>
+
+<script type="text/html" id ="id_option">
+    {{#  if(d.dealStatus ===210){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="set" title="配置">待配置</a>
+    {{# }else { }}
+    已配置
+    {{# } }}
+</script>
+
+<script type="text/html" id="excDetailList">
+    {{# layui.each(d.excDetailList,function(index,item){ }}
+    {{ item.goodsName}} * {{ item.buyCount }};
+    {{#  }); }}
+</script>
+
+<script type="text/html" id="dealStatus">
+    {{#  if(d.dealStatus ===210){ }}
+    待处理
+    {{#  }else if(d.dealStatus ===220){ }}
+    确定重新扣款(系统退款处理中)
+    {{#  }else if(d.dealStatus ===230){ }}
+    扣款成功
+    {{#  }else if(d.dealStatus ===240){ }}
+    扣款轮询中
+    {{#  }else if(d.dealStatus ===250){ }}
+    扣款失败
+    {{#  }else{ }}
+    未知
+    {{#  } }}
+</script>
+
+

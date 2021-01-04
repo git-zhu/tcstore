@@ -1,0 +1,31 @@
+<div class="layui-fluid">
+    <div class="layui-card">
+        <form class="layui-form layui-card-header">
+            <div class="layui-form-item">
+
+                <div class="layui-btn-group">
+                    <button type="button" class="layui-btn" id="search0">全部</button>
+                    <button type="button" class="layui-btn" id="search1">今日</button>
+                    <button type="button" class="layui-btn " id="search2">昨日</button>
+                    <button type="button" class="layui-btn" id="search3">近7日</button>
+                </div>
+                <div class="layui-inline">
+                    <input type="text" class="layui-input" name="search_time" id="time" placeholder="自定义查询日期">
+                </div>
+                <button type="button" class="layui-btn" id="search4">查询</button>
+
+
+            </div>
+        </form>
+
+        <div class="layui-card-body>">
+            <table class="layui-hide" id="sales" lay-filter="test"></table>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    var device_id ='<?php echo $device_id; ?>'
+</script>

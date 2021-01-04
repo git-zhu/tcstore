@@ -1,0 +1,148 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Order_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-order_id" data-rule="required" data-source="order/index" class="form-control selectpage" name="row[order_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('User_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-user_id" data-rule="required" data-source="user/user/index" data-field="nickname" class="form-control selectpage" name="row[user_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Haha_user_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-haha_user_id" data-rule="required" data-source="haha/user/index" class="form-control selectpage" name="row[haha_user_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Device_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-device_id" data-rule="required" data-source="device/index" class="form-control selectpage" name="row[device_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Administrator_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-administrator_id" data-rule="required" data-source="administrator/index" class="form-control selectpage" name="row[administrator_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Activity_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-activity_id" data-rule="required" data-source="activity/index" class="form-control selectpage" name="row[activity_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Order_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-order_name" class="form-control" name="row[order_name]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Order_detail')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-order_detail" class="form-control " rows="5" name="row[order_detail]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Order_money')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-order_money" class="form-control" name="row[order_money]" type="text" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('From_a')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-from_a" class="form-control" name="row[from_a]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Create_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-create_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[create_time]" type="text" value="{:date('Y-m-d H:i:s')}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Order_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-order_status" class="form-control" name="row[order_status]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Lst_up_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-lst_up_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[lst_up_time]" type="text" value="{:date('Y-m-d H:i:s')}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Haha_order_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-haha_order_id" data-rule="required" data-source="haha/order/index" class="form-control selectpage" name="row[haha_order_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Pay_way')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-pay_way" class="form-control" name="row[pay_way]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Fee')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-fee" class="form-control" name="row[fee]" type="text" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Settled')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-settled" class="form-control" name="row[settled]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Wo_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-wo_id" data-rule="required" data-source="wo/index" class="form-control selectpage" name="row[wo_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Wo_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-wo_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[wo_time]" type="text" value="{:date('Y-m-d H:i:s')}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Video_detail')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-video_detail" class="form-control " rows="5" name="row[video_detail]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Door_open')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-door_open" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[door_open]" type="text" value="{:date('Y-m-d H:i:s')}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Door_close')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-door_close" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[door_close]" type="text" value="{:date('Y-m-d H:i:s')}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Order_notify')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-order_notify" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[order_notify]" type="text" value="{:date('Y-m-d H:i:s')}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,63 @@
+
+<div class="demoTable">
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <input type="text" name="name" id="name" value="" placeholder="请输入活动名称" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <select name="type" id="type" lay-filter="search" class="layui-input">
+                    <option value="">请选择活动类型</option>
+                    <option value="1">新客立减</option>
+                    <option value="2">随机立减</option>
+                    <option value="3">商品满减</option>
+                    <option value="4">满赠红包</option>
+                </select>
+            </div>
+            <div class="layui-inline">
+                <input type="text" name="device" id="device" value="" placeholder="请输入参与设备" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <div class="layui-inline">
+                    <input type="text" name="start_time" class="layui-input" id="start_time" placeholder="请选择活动创建时间">
+                </div>
+                <div class="layui-inline">至</div>
+                <div class="layui-inline">
+                    <input type="text" name="end_time" class="layui-input" id="end_time" placeholder="请选择活动创建时间">
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <button class="layui-btn" data-type="reload">查询</button>
+    <button class="layui-btn" id="reset">重置</button>
+    <table id="demo" lay-filter="myfilter_test"></table>
+    <table id="list" lay-filter="test" style="display: none"></table>
+</div>
+
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="create">新建活动</button>
+        <button class="layui-btn layui-btn-sm" lay-event="out">导出</button>
+    </div>
+</script>
+
+<script type="text/html" id ="id_option">
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="detail" title="查看详情">查看详情</a>
+    {{#  if(d.status !=3){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="close" title="关闭">关闭</a>
+    {{# }else if(d.status ==3){ }}
+    已关闭
+    {{#  } }}
+</script>
+<script type="text/html" id ="id_deviceList">
+    {{# layui.each(d.deviceList,function(index,item){ }}
+    {{ item.deviceId}}；
+    {{#  }); }}
+    {{# if(d.deviceList.length >2){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="device" title="设备列表">查看</a>
+    {{#  } }}
+</script>
+

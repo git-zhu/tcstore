@@ -1,0 +1,52 @@
+<style type="text/css">
+
+    .vid-wrap{
+        width:100%;background: #000;
+        position:relative;
+        padding-bottom:56.25%;    /*需要用padding来维持16:9比例,也就是9除以16*/
+        height: 0;
+    }
+    .vid-wrap video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+
+<article class="pd-20" style="padding-top: 0px; padding-bottom: 0;">
+    <div class="row cl">
+        <div class="mt-20">
+            <table class="table table-border table-bordered table-bg table-hover table-sort mt-30 mb-30">
+                <thead>
+                <tr>
+                    <th colspan="2" scope="col">订单详情</th>
+                </tr>
+                </thead>
+                <tbody>
+                {volist name='order_detail' id='de'}
+                    <tr>
+                        <th>名称：{if isset($de.name)}{$de.name}{else}{$de.goodsId}{/if}
+                            数量:{$de.count}
+                            单价:{if isset($de.coupon)}{$de.coupon}{else} {/if}
+                            总价:{if isset($de.sum)}{$de.sum}{else}60{/if}
+                        </th>
+                    </tr>
+                {/volist}
+                <tr>
+                    <th>
+                        <div class="vid-wrap">
+                            <video controls="" autoplay="" name="media">
+                                <source src="{$order_info.videoUrl}" type="video/mp4">
+                            </video>
+                        </div>
+
+                    </th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</article>

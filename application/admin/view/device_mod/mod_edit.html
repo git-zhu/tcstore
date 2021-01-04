@@ -1,0 +1,33 @@
+<div>
+    <button id="getData" class="layui-btn layui-btn-sm">保存模板商品</button>
+    <button id="save" class="layui-btn layui-btn-sm">同步到设备商品</button>
+</div>
+
+<div id="test1"></div>
+当前生效设备：
+{volist name="device_list" id="vo" key="k" }
+{$vo.code}&nbsp;
+{/volist}
+<script>
+    var uid = '<?php echo $uid;?>';
+    //
+    uid = 'uid='+uid //获得 模板uid
+    var arr=[];
+    arr = '<?php echo json_encode($arr); ?>'//获得模板右侧数组
+
+    var rightArraySelected = arr;//arr为右侧模板的值
+    rightArraySelected = JSON.parse(rightArraySelected);
+    //
+
+
+    var updata = {};
+    updata.bindDeviceList = '<?php echo $bindDeviceList;?>';
+    updata.modCode = '<?php echo $modCode;?>';
+    updata.modName = '<?php echo $modName;?>';
+    updata.modType = '<?php echo $modType;?>';
+    updata.ownId ='<?php echo $ownId;?>';
+    updata.uid = '<?php echo $uid;?>';
+    device_id = '<?php echo $modName;?>';
+    //
+
+</script>

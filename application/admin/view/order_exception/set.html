@@ -1,0 +1,91 @@
+<style>
+    .layui-form-label {
+        width: auto;
+    }
+    .vid-wrap{
+        width:100%;background: #000;
+        position:relative;
+        padding-bottom:56.25%;    /*需要用padding来维持16:9比例,也就是9除以16*/
+        height: 0;
+    }
+    .vid-wrap video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<div class="layui-container" id="view">
+    <form class="layui-form" action="" style="white-space:nowrap!important;">
+        <div class="layui-form-item">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                <label class="layui-form-label" id="orderId">
+                </label>
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md6" >
+                <label class="layui-form-label" id="phone">
+                </label>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                <label class="layui-form-label" id="creatTime">
+                </label>
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                <label class="layui-form-label" id="deviceId">
+                </label>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                <label class="layui-form-label" id="goodsList">
+                </label>
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+
+            </div>
+        </div>
+
+
+        <hr>
+        <fieldset class="layui-elem-field">
+            <legend>配置异常商品</legend>
+            <div class="layui-field-box">
+                <div id="appendInput"></div>
+                <div id="change_money"></div>
+            </div>
+
+        </fieldset>
+
+    </form>
+
+    <button id="koukuan" class="layui-btn layui-btn-normal">发起扣款</button>
+
+    <fieldset class="layui-elem-field">
+        <legend>视频详情</legend>
+        <div class="layui-field-box">
+            <div class="vid-wrap" id="video">
+
+            </div>
+        </div>
+    </fieldset>
+
+
+
+</div>
+<script>
+    var id = '<?php echo $id; ?>';
+</script>
+<script type="text/html" id="id_video">
+    <video controls="" autoplay="" name="media">
+        <source src="{{ d }}" type="video/mp4">
+    </video>
+</script>
+<script type="text/html" id="id_change_money">
+
+</script>
+

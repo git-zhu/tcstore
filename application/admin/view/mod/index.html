@@ -1,0 +1,43 @@
+
+<div class="demoTable">
+    <div class="layui-inline">
+        <input type="text" name="nickName" id="nickName" value="" placeholder="请输入模板名称" class="layui-input">
+    </div>
+    <button class="layui-btn" data-type="reload">查询</button>
+    <button class="layui-btn" id="reset">重置</button>
+    <table id="demo" lay-filter="myfilter_test"></table>
+    <table id="list" lay-filter="test" style="display: none"></table>
+</div>
+
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="create">新建模板</button>
+        <button class="layui-btn layui-btn-sm" lay-event="out">导出</button>
+    </div>
+</script>
+
+<script type="text/html" id ="id_option">
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="edit" title="编辑">编辑</a>
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="copy" title="复制" id="copy">复制</a>
+    {{# if(d.bindDeviceList.length ==0){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del" title="删除" id="del">删除</a>
+    {{# }else{ }}
+    <a class="layui-btn layui-btn-xs layui-btn-danger layui-btn-disabled" title="删除" disabled="disabled">删除</a>
+    {{# } }}
+</script>
+<script type="text/html" id ="id_bindGoodsList">
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="goodsList" title="查看">查看</a>
+</script>
+<script type="text/html" id ="id_bindDeviceList">
+    {{# layui.each(d.bindDeviceList,function(index,item){ }}
+    {{ item.deviceId}};
+    {{#  }); }}
+</script>
+<script type="text/html" id="id_suitType">
+    {{#  if(d.suitType ==1){ }}
+    B型动态柜
+    {{#  } if(d.suitType ==11){ }}
+    L型动态柜
+    {{#  } }}
+</script>

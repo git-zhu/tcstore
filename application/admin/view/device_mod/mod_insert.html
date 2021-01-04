@@ -1,0 +1,19 @@
+<form class="layui-form" style="white-space:nowrap!important;" action="{:url('device_mod/do_mod_insert')}" method="post">
+    <div class="layui-form-item">
+        <blockquote class="layui-elem-quote"><div class="text-red">注意！导入后，原模板商品将被替换！</div></blockquote>
+        <label class="layui-form-label">选择模板</label>
+        <div class="layui-input-block">
+            <select name="mod_name">
+                <option value="">请选择要导入的模板</option>
+
+                {volist name="device_id" id="ca" key="k" }
+                <option value="{$ca.mod_name}" >{$ca.mod_name}</option>
+                {/volist}
+            </select>
+            <input type="hidden" name="uid" value="{$uid}}">
+
+        </div>
+
+    </div>
+    <button class="btn btn-success" type="submit">确认导入</button>
+</form>
