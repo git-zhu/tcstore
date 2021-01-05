@@ -103,7 +103,7 @@ define(['layui'], function (undefined) {
                                 btn: ['导出本页', '导出全部'],
                                 btn1: function (index) {
                                     var loading = layer.msg('正在导出', {icon: 16, shade: 0.3, time: 0});
-                                    url = tchost + "/tcstore/tcOrderInfo/excelExportList?adminName=" + adminName +
+                                    url = tchost + "/tcstore/tcStatistics/adminSaleDataExcelExportList?adminName=" + adminName +
                                         '&timeStart=' + timeStart + '&timeEnd=' + timeEnd +
                                         '&pageNo=' + recodePage + '&pageSize=' + recodeLimit;
                                     xhr.open("get", url, true);
@@ -129,7 +129,7 @@ define(['layui'], function (undefined) {
                                 },
                                 btn2: function (index) {
                                     var loading = layer.msg('正在导出', {icon: 16, shade: 0.3, time: 0});
-                                    url = tchost + "/tcstore/tcOrderInfo/excelExportList?adminName=" + adminName +
+                                    url = tchost + "/tcstore/tcStatistics/adminSaleDataExcelExportList?adminName=" + adminName +
                                         '&timeStart=' + timeStart + '&timeEnd=' + timeEnd +
                                         '&pageNo=1&pageSize=' + total_count;
                                     xhr.open("get", url, true);

@@ -113,7 +113,7 @@ define(['layui'], function (undefined) {
                                 btn: ['导出本页', '导出全部'],
                                 btn1: function (index) {
                                     var loading = layer.msg('正在导出', {icon: 16, shade: 0.3, time: 0});
-                                    url = tchost + "/tcstore/tcOrderInfo/excelExportList?deviceName=" + deviceName +
+                                    url = tchost + "/tcstore/tcStatistics/goodsSaleDataExcelExportList?deviceName=" + deviceName +
                                         '&deviceId=' + deviceId + '&goodsName=' + goodsName + '&barcode=' + barcode +
                                         '&timeStart=' + timeStart + '&timeEnd=' + timeEnd +
                                         '&pageNo=' + recodePage + '&pageSize=' + recodeLimit;
@@ -140,7 +140,7 @@ define(['layui'], function (undefined) {
                                 },
                                 btn2: function (index) {
                                     var loading = layer.msg('正在导出', {icon: 16, shade: 0.3, time: 0});
-                                    url = tchost + "/tcstore/tcOrderInfo/excelExportList?deviceName=" + deviceName +
+                                    url = tchost + "/tcstore/tcStatistics/goodsSaleDataExcelExportList?deviceName=" + deviceName +
                                         '&deviceId=' + deviceId + '&goodsName=' + goodsName + '&barcode=' + barcode +
                                         '&timeStart=' + timeStart + '&timeEnd=' + timeEnd +
                                         '&pageNo=1&pageSize=' + total_count;
